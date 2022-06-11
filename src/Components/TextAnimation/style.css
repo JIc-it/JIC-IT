@@ -1,0 +1,15 @@
+.text-reveal-content {
+    transform: translateY(200%);
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    transition: 1.25s ease-out;
+}
+.text-reveal-tag{
+    overflow: hidden;
+}
+
+.text-reveal-tag .active{
+    transform: translateY(0%) !important;
+    transition: 1.25s ease-out;
+}

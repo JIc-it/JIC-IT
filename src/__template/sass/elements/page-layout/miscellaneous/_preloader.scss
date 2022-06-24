@@ -1,0 +1,61 @@
+#preloader {
+	background-color: #ffffff;
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 100vh;
+	left: 0;
+	overflow: visible;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 9999999;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	opacity: 1;
+}
+.tlp-preloader {
+	.animation-preloader {
+		position: relative;
+		z-index: 1;
+		img {
+			position: absolute;
+			z-index: 100;
+			left: 50%;
+			top: 50%;
+			transform: translateY(-50%) translateX(-50%) scale(0.7);
+			animation: zoominout 2s infinite linear;
+			transition: all 0.9s ease-in-out;
+		}
+		.tlp-spinner {
+			animation: rotateZ 1s infinite linear;
+			border-radius: 50%;
+			border: rem(3px) solid rgba(0,0,0, 0.15);
+			border-top-color: #5a49f8;
+			height: rem(120px);
+			width: rem(120px);
+		}
+	}
+}
+@keyframes rotateZ {
+	to {
+		transform: rotateZ(360deg);
+	}
+}
+@keyframes zoominout {
+	0% {
+		transform: translateY(-50%) translateX(-50%) scale(0.7);
+	}
+	50% {
+		transform: translateY(-50%) translateX(-50%) scale(1);
+	}
+	100% {
+		transform: translateY(-50%) translateX(-50%) scale(0.7);
+	}
+}

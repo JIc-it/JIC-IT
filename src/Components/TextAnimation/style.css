@@ -32,7 +32,7 @@
     left: 0;
     background-color: #5a49f8;
     transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
+    transition: transform 0.7s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
   
   .hover-underline-animation:hover:after {

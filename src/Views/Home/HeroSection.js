@@ -3,7 +3,7 @@ import HeroVector from "../../Assets/illustration2.png";
 
 const HeroSection = () => {
   return (
-    <section className="box-layout main-banner-wrap-layout2 has-animation active-animation">
+    <section className="box-layout main-banner-wrap-layout2 has-animation ">
       <ul className="animated-figure-wrap1">
         <li>
           <div className="translate-top-left-75 opacity-animation transition-200 transition-delay-10">

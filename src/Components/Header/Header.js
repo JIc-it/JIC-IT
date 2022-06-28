@@ -1,11 +1,15 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../../Assets/IT-logo.png";
+import { url } from "../../Common/Config";
 
 const Header = () => {
   const { pathname } = useLocation();
   const [isMobile, setisMobile] = useState(false);
   const [mobileMenuOpen, setmobileMenuOpen] = useState(false);
+  const [ServiceNav, setServiceNav] = useState([])
+
 
   useEffect(() => {
     if (!!window.IntersectionObserver) {
@@ -49,114 +53,133 @@ const Header = () => {
     );
   }, [window.innerWidth]);
 
-  if (!isMobile) {
-    return (
-      <>
-        <header className="sticky-on">
-          <div id="sticky-placeholder" />
-          <div id="navbar-wrap" className="navbar-wrap">
-            <div className="navbar-layout2">
-              <div className="box-layout-child">
-                <div className="container-fluid">
-                  <div className="row no-gutters d-flex align-items-center position-relative">
-                    <div className="col-lg-2 d-flex justify-content-start">
-                      <div className="temp-logo text-center">
-                        <a href="index.html" className="default-logo">
-                          <img
-                            src={Logo}
-                            alt="logo"
-                            style={{ height: "4rem" }}
-                            className="img-fluid"
-                          />
-                        </a>
-                        <a href="index.html" className="sticky-logo">
-                          <img
-                            src={Logo}
-                            style={{ height: "4rem" }}
-                            alt="logo"
-                            className="img-fluid"
-                          />
-                        </a>
-                      </div>
+  useEffect(() => {
+    GetServices()
+  }, [])
+
+
+  const hideDropdown = () => {
+    document.querySelector('.mega-menu-container').style.opacity = '0'
+  }
+  const showDropdown = () => {
+
+    document.querySelector('.mega-menu-container').style.opacity = '1'
+  }
+
+
+
+  const GetServices = async () => {
+    var config = {
+      method: 'get',
+      url: url + '/category/',
+    };
+    console.log('GET API config', config)
+
+    await axios(config)
+      .then(function (response) {
+        console.log("GET API response", response)
+      })
+      .catch(function (error) {
+        console.log("GET API error", error)
+
+
+
+      });
+
+  }
+  return (
+    <>
+      <header className="sticky-on d-lg-block d-none">
+        <div id="sticky-placeholder" />
+        <div id="navbar-wrap" className="navbar-wrap">
+          <div className="navbar-layout2">
+            <div className="box-layout-child">
+              <div className="container-fluid">
+                <div className="row no-gutters d-flex align-items-center position-relative">
+                  <div className="col-lg-2 d-flex justify-content-start">
+                    <div className="temp-logo text-center">
+                      <a href="index.html" className="default-logo">
+                        <img
+                          src={Logo}
+                          alt="logo"
+                          style={{ height: "4rem" }}
+                          className="img-fluid"
+                        />
+                      </a>
+                      <a href="index.html" className="sticky-logo">
+                        <img
+                          src={Logo}
+                          style={{ height: "4rem" }}
+                          alt="logo"
+                          className="img-fluid"
+                        />
+                      </a>
                     </div>
-                    <div className="col-lg-7 d-flex justify-content-end possition-static">
-                      <nav
-                        id="dropdown"
-                        className="template-main-menu"
-                        style={{ display: "block" }}
-                      >
-                        <ul>
-                          {NavItems.map((item) => (
-                            <li className="position-static d-none d-lg-block">
-                              {item.url ? (
-                                <Link to={item.url}>{item.title}</Link>
-                              ) : (
-                                <a >{item.title}</a>
-                              )}
+                  </div>
+                  <div className="col-lg-7 d-flex justify-content-end possition-static">
+                    <nav
+                      id="dropdown"
+                      className="template-main-menu"
+                      style={{ display: "block" }}
+                    >
+                      <ul>
+                        {NavItems.map((item) => (
+                          <li className="position-static d-none d-lg-block">
+                            {item.url ? (
+                              <Link to={item.url} >{item.title}</Link>
+                            ) : (
+                              <a onMouseEnter={() => item.title == 'Service' ? showDropdown() : null}>{item.title}</a>
+                            )}
 
 
-                              {item.subCategory && (
-                                <div className="mega-menu-container" style={{ width: '80%', margin: 'auto', padding:'3.5rem 3rem' }}>
-                                  <div className="row">
-                                    {item.subCategory?.map((itm) => (
-                                      <div className="col-lg-3">
-                                        <a >
-                                          <span style={{ textTransform: 'uppercase', fontWeight: 800, color:'#5a49f8' }}>{itm.title}</span>
-                                        </a>
-                                        <ul className="d-flex" style={{flexDirection:'column'}}>
-                                          {itm.subMenu.map(navMenus => (
+                            {!!ServiceNav.length && (
+                              <div className="mega-menu-container" style={{ width: '80%', margin: 'auto', padding: '3.5rem 3rem' }}>
+                                <div className="row">
+                                  {ServiceNav?.map((itm) => (
+                                    <div className="col-lg-3">
+                                      <a >
+                                        <span style={{ textTransform: 'uppercase', fontWeight: 800, color: '#5a49f8' }}>{itm.name}</span>
+                                      </a>
+                                      <ul className="d-flex" style={{ flexDirection: 'column' }}>
+                                        {itm.services.map((navMenus, idx) => (
 
-                                            <Link to={navMenus.url} className="hover-underline-animation ">
-                                              {navMenus.title}</Link>
-                                          ))}
-                                        </ul>
-                                      </div>
-                                    ))}
-                                  </div>
+                                          <Link to={`${navMenus.id}/${idx + 1}`} className="hover-underline-animation " onClick={hideDropdown}>
+                                            {navMenus.heading}</Link>
+                                        ))}
+                                      </ul>
+                                    </div>
+                                  ))}
                                 </div>
-                              )}
+                              </div>
+                            )}
 
-                            </li>
-                          ))}
-                        </ul>
-                      </nav>
-                    </div>
-                    <div className="col-lg-3 d-flex justify-content-end">
-                      <ul className="header-action-items">
-                        <li className="single-item mr-2">
-                          <a href="#" className="item-btn btn-fill btn-primary">
-                            Get a Quote
-                          </a>
-                        </li>
-                        {/* <li className="single-item">
-                        <button
-                          type="button"
-                          className="offcanvas-menu-btn menu-status-open"
-                        >
-                          <span className="menu-btn-icon">
-                            <span />
-                            <span />
-                            <span />
-                          </span>
-                        </button>
-                      </li> */}
+                          </li>
+                        ))}
                       </ul>
-                    </div>
+                    </nav>
+                  </div>
+                  <div className="col-lg-3 d-flex justify-content-end">
+                    <ul className="header-action-items">
+                      <li className="single-item mr-2">
+                        <a href="#" className="item-btn btn-fill btn-primary">
+                          Get a Quote
+                        </a>
+                      </li>
+
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </header>
-      </>
-    );
-  } else {
-    return (
-      <div className="mean-container">
+        </div>
+      </header>
+
+      <div className="mean-container d-block d-lg-none">
         <div className="mean-bar ">
           <div className="mobile-menu-nav-back">
             <a className="logo-mobile" href="index.html">
-              <img src={Logo} alt="logo" className="img-fluid" />
+              <img src={Logo} alt="logo" style={{ height: '2.25rem' }} className="img-fluid" />
             </a>
           </div>
           <a
@@ -186,16 +209,17 @@ const Header = () => {
             >
               {NavItems.map((item) => (
                 <li>
-                  <Link to={item.url}>{item.title}</Link>
+                  <Link to={item.url ? item.url : '/'}>{item.title}</Link>
                 </li>
               ))}
             </ul>
           </nav>
         </div>
       </div>
-    );
-  }
-};
+    </>
+  );
+}
+
 
 export default Header;
 export const NavItems = [
@@ -208,7 +232,8 @@ export const NavItems = [
         title: "media buying", subMenu: [
           { title: 'shopping campaigns', url: '/service-details' },
           { title: 'display ads', url: '/service-details' },
-          { title: ' native advertising', url: '/service-details' },
+          { title: 'native advertising', url: '/service-details' },
+          { title: 'Mobile App Marketing ', url: '/service-details' },
 
         ]
       },
@@ -217,6 +242,7 @@ export const NavItems = [
           { title: 'digital branding', url: '/service-details' },
           { title: 'brand identity', url: '/service-details' },
           { title: 'brand analytics', url: '/service-details' },
+          { title: 'Online Reputation Management ', url: '/service-details' },
 
         ]
       },
@@ -243,12 +269,12 @@ export const NavItems = [
           { title: 'content writing', url: '/service-details' },
           { title: 'Graphic Designing', url: '/service-details' },
           { title: 'visual creation Solutions', url: '/service-details' },
-          
+
         ]
       },
     ],
   },
-  { title: "Solution", url: "/" },
+  { title: "Solution", url: "/solution" },
   { title: "Stack", url: "/" },
   { title: "Contact", url: "/contact" },
 ];

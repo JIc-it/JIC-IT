@@ -4,7 +4,7 @@ import AboutImg from "../../Assets/about1.jpg";
 
 const About = () => {
   return (
-    <section className="about-wrap-layout3 has-animation active-animation section-padding-md">
+    <section className="about-wrap-layout3 has-animation  section-padding-md">
       <div className="animated-shape">
         <ul>
           <li>
@@ -18,7 +18,7 @@ const About = () => {
         <div className="row d-flex align-items-center">
           <div className="col-xl-6 col-lg-5 col-12 pl-0 pr-0">
             <div className="about-box-layout3">
-              <ul className="figure-holder has-animation active-animation">
+              <ul className="figure-holder has-animation ">
                 <li className="animated-bg">
                   <div className="translate-left-75 opacity-animation transition-200 transition-delay-10">
                     <svg width="1011px" height="793px">

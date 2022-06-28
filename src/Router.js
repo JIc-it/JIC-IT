@@ -20,14 +20,11 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/service/media-buying" element={<ServiceSection />} />
-        <Route path="/service/branding" element={<ServiceSection />} />
-        <Route path="/service/digital-strategy" element={<ServiceSection />} />
-        <Route path="/service/organic" element={<ServiceSection />} />
+        <Route path="/service" element={<ServiceSection />} />
         <Route path="/solution" element={<Solution />} />
         <Route path="/contact" element={<Contact />} />
 
-        <Route path="/service-details" element={<ServiceDetails />} />
+        <Route path="/service-details/:id" element={<ServiceDetails />} />
 
       </Routes>
       <Footer />

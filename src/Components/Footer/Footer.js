@@ -26,31 +26,15 @@ const Footer = () => {
                   ametion more consectetur elit.
                 </p>
                 <ul className="footer-social">
-                  <li>
-                    <a href="#">
-                      <i className="fab fa-facebook-f" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="fab fa-twitter" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="fab fa-instagram" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="fab fa-pinterest-p" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="fab fa-youtube" />
-                    </a>
-                  </li>
+                  {socialMedias.map(item => (
+
+                    <li>
+                      <a href={item.url} target={"_blank"}>
+                        <i className={item.icon} />
+                      </a>
+                    </li>
+                  ))}
+
                 </ul>
               </div>
             </div>
@@ -165,3 +149,8 @@ const Footer = () => {
 };
 
 export default Footer;
+export const socialMedias = [
+  { icon: 'fab fa-facebook-f', url: 'https://www.facebook.com/jicitsolutions/' },
+  { icon: 'fab fa-linkedin-in', url: 'https://www.linkedin.com/company/jic-it-solutions-pvt-ltd/' },
+  { icon: 'fab fa-instagram', url: 'https://www.instagram.com/jicitsolutions/' },
+]

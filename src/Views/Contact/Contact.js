@@ -9,7 +9,7 @@ const Contact = () => {
         </div>
 
         <div className="row gutters-50">
-          <div className="col-lg-4 mb-5 has-animation active-animation">
+          <div className="col-lg-4 mb-5 has-animation ">
             <div className="single-item translate-left-75 opacity-animation transition-150 transition-delay-100">
               <div className="address-box-layout2">
                 <div className="item-icon">
@@ -55,7 +55,7 @@ const Contact = () => {
               </div>
             </div> */}
           </div>
-          <div className="col-lg-8 has-animation active-animation">
+          <div className="col-lg-8 has-animation ">
             <div className="contact-box-layout3">
               <form
                 className="contact-form-box"

@@ -1,3 +1,7 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+Allow: sitemap.xml
+Allow: sitemap.html
+
+Sitemap: https://jicitsolution.com//sitemap.xml

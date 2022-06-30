@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "../../Assets/IT-logo.png";
-import { Address, Phone } from "../../Views/Contact/Contact";
+import { Address, Mail, Phone } from "../../Views/Contact/Contact";
 
 const Footer = () => {
   return (
@@ -21,10 +21,10 @@ const Footer = () => {
                     <img src={Logo} style={{ height: "5.4rem" }} alt="Logo" />
                   </a>
                 </div>
-                <p className="about-paragraph">
+                {/* <p className="about-paragraph">
                   Grursus mal suada faci Lorem to the ipsum dolarorit more
                   ametion more consectetur elit.
-                </p>
+                </p> */}
                 <ul className="footer-social">
                   {socialMedias.map(item => (
 
@@ -38,7 +38,7 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-            <div className="col-xl-2 d-none d-xl-block">
+            {/* <div className="col-xl-2 d-none d-xl-block">
               <div className="footer-widgets">
                 <h3 className="footer-widget-heading">Workflows</h3>
                 <ul className="footer-menu">
@@ -59,8 +59,8 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-            </div>
-            <div className="col-xl-2 col-lg-3 col-md-6 col-12">
+            </div> */}
+            <div className="col-xl-3 col-lg-3 col-md-6 col-12">
               <div className="footer-widgets">
                 <h3 className="footer-widget-heading">Important Link</h3>
                 <ul className="footer-menu">
@@ -82,7 +82,7 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-            <div className="col-xl-2 col-lg-3 col-md-6 col-12">
+            <div className="col-xl-3 col-lg-3 col-md-6 col-12">
               <div className="footer-widgets">
                 <h3 className="footer-widget-heading">Our Services</h3>
                 <ul className="footer-menu">
@@ -115,7 +115,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <i className="flaticon-plane" />
-                    info@yourdomain.com
+                    <a href={`mailto:${Mail}`} >{Mail}</a>
                   </li>
                   <li>
                     <i className="flaticon-telephone" />
@@ -131,20 +131,14 @@ const Footer = () => {
         <div className="container">
           <div className="copy-right-wrap">
             <p className="copy-right-text">
-              © 2020{" "}
-              <a
-                href="https://www.radiustheme.com"
-                rel="nofollow"
-                target="_blank"
-              >
-                RadiusTheme.
-              </a>{" "}
+              © 2022{" "}
+              JIC IT Solutions.
               All Rights Reserved
             </p>
           </div>
         </div>
       </div>
-    </footer>
+    </footer >
   );
 };
 

@@ -61,9 +61,12 @@ const Header = () => {
   const hideDropdown = () => {
     document.querySelector('.mega-menu-container').style.opacity = '0'
   }
-  const showDropdown = () => {
+  const showDropdown = (param) => {
+    // alert(param)
+    if (param === "Service") {
+      document.querySelector('.mega-menu-container').style.opacity = '1'
+    }
 
-    document.querySelector('.mega-menu-container').style.opacity = '1'
   }
 
 
@@ -78,6 +81,9 @@ const Header = () => {
     await axios(config)
       .then(function (response) {
         console.log("GET API response", response)
+        if (response.data) {
+          setServiceNav(response.data)
+        }
       })
       .catch(function (error) {
         console.log("GET API error", error)
@@ -128,30 +134,33 @@ const Header = () => {
                             {item.url ? (
                               <Link to={item.url} >{item.title}</Link>
                             ) : (
-                              <a onMouseEnter={() => item.title == 'Service' ? showDropdown() : null}>{item.title}</a>
-                            )}
+                              <>
+                                <a onMouseEnter={() => showDropdown(item.title)}>{item.title}</a>
+                                {!!ServiceNav.length && (
+                                  <div className="mega-menu-container" style={{ width: '80%', margin: 'auto', padding: '3.5rem 3rem' }}>
+                                    <div className="row">
+                                      {ServiceNav?.map((itm) => (
+                                        <div className="col-lg-3">
+                                          <a >
+                                            <span style={{ textTransform: 'uppercase', fontWeight: 800, color: '#5a49f8' }}>{itm.name}</span>
+                                          </a>
+                                          <ul className="d-flex" style={{ flexDirection: 'column' }}>
+                                            {itm.services.map((navMenus, idx) => (
 
-
-                            {!!ServiceNav.length && (
-                              <div className="mega-menu-container" style={{ width: '80%', margin: 'auto', padding: '3.5rem 3rem' }}>
-                                <div className="row">
-                                  {ServiceNav?.map((itm) => (
-                                    <div className="col-lg-3">
-                                      <a >
-                                        <span style={{ textTransform: 'uppercase', fontWeight: 800, color: '#5a49f8' }}>{itm.name}</span>
-                                      </a>
-                                      <ul className="d-flex" style={{ flexDirection: 'column' }}>
-                                        {itm.services.map((navMenus, idx) => (
-
-                                          <Link to={`${navMenus.id}/${idx + 1}`} className="hover-underline-animation " onClick={hideDropdown}>
-                                            {navMenus.heading}</Link>
-                                        ))}
-                                      </ul>
+                                              <Link to={`/service-details/${navMenus.heading.replaceAll(' ', '-')}`} className="hover-underline-animation " onClick={hideDropdown}>
+                                                {navMenus.heading}</Link>
+                                            ))}
+                                          </ul>
+                                        </div>
+                                      ))}
                                     </div>
-                                  ))}
-                                </div>
-                              </div>
+                                  </div>
+                                )}
+                              </>
                             )}
+
+
+
 
                           </li>
                         ))}
@@ -225,55 +234,7 @@ export default Header;
 export const NavItems = [
   { title: "Home", url: "/" },
   { title: "About", url: "/about" },
-  {
-    title: "Service",
-    subCategory: [
-      {
-        title: "media buying", subMenu: [
-          { title: 'shopping campaigns', url: '/service-details' },
-          { title: 'display ads', url: '/service-details' },
-          { title: 'native advertising', url: '/service-details' },
-          { title: 'Mobile App Marketing ', url: '/service-details' },
-
-        ]
-      },
-      {
-        title: "branding", subMenu: [
-          { title: 'digital branding', url: '/service-details' },
-          { title: 'brand identity', url: '/service-details' },
-          { title: 'brand analytics', url: '/service-details' },
-          { title: 'Online Reputation Management ', url: '/service-details' },
-
-        ]
-      },
-      {
-        title: "Digital strategy", subMenu: [
-          { title: 'digital marketing strategy', url: '/service-details' },
-          { title: 'E-mail marketing', url: '/service-details' },
-          { title: 'search engine marketing', url: '/service-details' },
-          { title: 'mobile app marketing', url: '/service-details' },
-          { title: 'local and international SEO', url: '/service-details' },
-          { title: 'conversion rate optimization', url: '/service-details' },
-          { title: 'influence marketing', url: '/service-details' },
-          { title: 'content marketing', url: '/service-details' },
-          { title: 'PPC', url: '/service-details' },
-          { title: 'Google Analytics', url: '/service-details' },
-          { title: 'social media optimization', url: '/service-details' },
-          { title: 'social media marketing', url: '/service-details' },
-          { title: 'ASO', url: '/service-details' },
-        ]
-      },
-      {
-        title: "organic", subMenu: [
-          { title: 'Copywriting', url: '/service-details' },
-          { title: 'content writing', url: '/service-details' },
-          { title: 'Graphic Designing', url: '/service-details' },
-          { title: 'visual creation Solutions', url: '/service-details' },
-
-        ]
-      },
-    ],
-  },
+  { title: "Service", },
   { title: "Solution", url: "/solution" },
   { title: "Stack", url: "/" },
   { title: "Contact", url: "/contact" },

@@ -18,7 +18,9 @@ const Contact = () => {
                 <div className="item-content">
                   <h3 className="item-title">Email &amp; Phone</h3>
                   <ul className="list-item">
-                    <li>yourweb@gmail.com</li>
+                    <li>
+                      <a href={`mailto:${Mail}`}>{Mail}</a>
+                    </li>
                     <li>
                       <a href={`tel:+${Phone}`}>{Phone}</a>
                     </li>
@@ -141,6 +143,14 @@ const Contact = () => {
 
 export default Contact;
 export const Address =
-  `TK Business Arcade, 165B/35, 31, Residence Line, Nr. Changapuzha Park, Edappally, 682026, Ernakulam, Kerala, India`
-export const Phone = "+918714009727";
-export const Mail = "";
+  <p>
+    Kuwait City, Qibla Block No.15,
+    Ali Al Salem Street,
+    Adel Tower, Floor No. 7, Door No. 2
+    <br />
+    Kuwait
+  </p>
+
+// `TK Business Arcade, 165B/35, 31, Residence Line, Nr. Changapuzha Park, Edappally, 682026, Ernakulam, Kerala, India`
+export const Phone = "+96566305306";
+export const Mail = "info@jicitsolution.com";

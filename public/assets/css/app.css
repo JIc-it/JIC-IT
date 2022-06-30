@@ -26293,8 +26293,9 @@ ul.pagination-layout2 .center-btn a:hover {
   left: 0;
   bottom: 0;
   right: 0;
-  background-image: -o-linear-gradient(30deg, #523fff 0%, #750ed5 93%);
-  background-image: linear-gradient(60deg, #523fff 0%, #750ed5 93%);
+  /* background-image: -o-linear-gradient(30deg, #523fff 0%, #750ed5 93%);
+  background-image: linear-gradient(60deg, #523fff 0%, #750ed5 93%); */
+  background-image: linear-gradient(60deg, #f1f0ff 0%, #5a49f8 93%)
 }
 
 /*--------------------------------------

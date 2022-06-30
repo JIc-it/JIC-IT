@@ -1,86 +1,83 @@
 import React from 'react'
+import { url } from '../../Common/Config'
+import ReactHtmlParser from 'react-html-parser';
 
-const SectionLayout3 = () => {
+const SectionLayout3 = ({ image, icon, heading, subHeading, description, buttonLink, buttonName, cards, points, sectionClassName }) => {
     return (
-        <section className="service-wrap-layout4 section-padding-md bg-color-accent4">
-            <div className="container">
-                <ul className="animated-shape has-animation active-animation">
-                    <li>
-                        <div className="translate-right-100 opacity-animation transition-200 transition-delay-500">
-                            <svg width="666px" height="536px">
-                                <path fillRule="evenodd" fill="rgb(241, 245, 250)" d="M267.432,-0.005 C415.131,-0.005 424.350,190.082 548.659,269.886 C860.848,470.308 474.194,545.086 267.432,535.125 C119.904,528.020 -0.000,415.333 -0.000,267.560 C-0.000,119.786 119.733,-0.005 267.432,-0.005 Z" />
-                            </svg>
-                        </div>
-                    </li>
-                </ul>
-                <div className="row">
-                    <div className="col-xl-6 col-12 d-flex align-items-center justify-content-center">
-                        <div className="service-box-layout4 mr-5 has-animation active-animation">
-                            <div className="translate-bottom-75 opacity-animation transition-150 transition-delay-100">
-                                <h2 className="item-main-title">What Features You Will Get From App</h2>
-                            </div>
-                            <div className="translate-bottom-75 opacity-animation transition-150 transition-delay-500">
-                                <p>Grursus mal suada faci lisis Lorem ipsum dolarorit ametion and it consectetur elit. Vesti at bulum nec odio ipsumm ipsum that more dolocons suada and fadolorit to the consectetur elit. All the Lorem Ipsum generators on the Internet tend predefined
-                                    the which looks dummy text reasonable.</p>
-                            </div>
-                            <div className="translate-bottom-75 opacity-animation transition-150 transition-delay-900">
-                                <a href="service-details.html" className="item-btn btn-ghost">Explore More<i className="flaticon-next" /></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-xl-6 col-12">
-                        <div className="service-box-layout4 mb-0">
-                            <div className="row masonry-items has-animation active-animation" style={{ position: 'relative', height: 784 }}>
-                                <div data-tilt className="col-md-6 col-12 masonry-item" style={{ position: 'absolute', left: 0, top: 0, willChange: 'transform', transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg)' }}>
-                                    <div className="translate-bottom-75 opacity-animation transition-150 transition-delay-100">
-                                        <div className="service-list">
-                                            <div className="item-icon">
-                                                <i className="flaticon-shield" />
-                                            </div>
-                                            <h3 className="item-title">Powerful System</h3>
-                                            <p>Grursus mal suada faci lisis Lorem ipsum dolarorit more and ametion elit.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div data-tilt className="col-md-6 col-12 masonry-item" style={{ position: 'absolute', left: 300, top: 0, willChange: 'transform', transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg)' }}>
-                                    <div className="translate-bottom-75 opacity-animation transition-150 transition-delay-300">
-                                        <div className="service-list">
-                                            <div className="item-icon">
-                                                <i className="flaticon-pen-1" />
-                                            </div>
-                                            <h3 className="item-title">Perfect UI/UX</h3>
-                                            <p>Grursus mal suada faci lisis Lorem ipsum dolarorit more and ametion elit.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div data-tilt className="col-md-6 col-12 masonry-item" style={{ position: 'absolute', left: 0, top: 312, willChange: 'transform', transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg)' }}>
-                                    <div className="translate-bottom-75 opacity-animation transition-150 transition-delay-500">
-                                        <div className="service-list">
-                                            <div className="item-icon">
-                                                <i className="flaticon-clean-1" />
-                                            </div>
-                                            <h3 className="item-title">Easily Editable</h3>
-                                            <p>Grursus mal suada faci lisis Lorem ipsum dolarorit more and ametion elit.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div data-tilt className="col-md-6 col-12 masonry-item" style={{ position: 'absolute', left: 300, top: 472, willChange: 'transform', transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg)' }}>
-                                    <div className="translate-bottom-75 opacity-animation transition-150 transition-delay-700">
-                                        <div className="service-list">
-                                            <div className="item-icon">
-                                                <i className="flaticon-null" />
-                                            </div>
-                                            <h3 className="item-title">High Performance</h3>
-                                            <p>Grursus mal suada faci lisis Lorem ipsum dolarorit more and ametion elit.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <section className={"service-wrap-layout2  bg-color-light position-relative "}>
+            <div className={sectionClassName}>
+                <div className="animated-figure">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="682px" height="624px" data-parallax="{&quot;x&quot; : 150, &quot;y&quot; : -400}" style={{ transform: 'translate3d(0.576px, -1.479px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1)', WebkitTransform: 'translate3d(0.576px, -1.479px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1)' }}>
+                        <path fillRule="evenodd" fill="rgb(249, 251, 255)" d="M129.861,445.151 C135.817,359.733 165.631,309.507 69.925,231.284 C-48.622,134.391 1.806,7.438 100.124,2.487 C180.263,-1.549 184.232,52.109 291.793,81.829 C351.092,98.213 363.911,86.655 391.662,45.581 C442.752,-30.034 518.868,-4.403 507.727,69.983 C496.050,147.952 503.636,232.416 606.763,223.993 C707.036,215.803 714.686,361.609 582.959,374.723 C481.641,384.808 441.418,364.086 368.153,540.352 C316.484,664.660 114.605,663.966 129.861,445.151 Z" />
+                    </svg>
                 </div>
+                <div className=" row">
+                    <div className="col-lg-6 col-12">
+
+                        <div className="section-heading heading-dark heading-layout7">
+                            <div className="heading-sub-title">{subHeading}</div>
+                            <h2 className="heading-main-title">{heading}</h2>
+                            <div className="">{ReactHtmlParser(description)}</div>
+
+                        </div>
+                        
+                        {points &&
+                            <div className="footer-top-layout9 pt-0">
+                                <div className="">
+                                    <div className="footer-widgets">
+                                        {/* <h3 className="footer-widget-heading">Our Services</h3> */}
+                                        <ul className="footer-menu">
+                                            {points.map(item => (
+                                                <li><a style={{ color: '#5a49f8' }}>{item.points}</a></li>
+
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                    {image &&
+                        <div class="col-lg-6  has-animation active-animation">
+                            <div class="translate-right-75 opacity-animation transition-150 transition-delay-10">
+                                <div class="feature-box-layout5">
+                                    <div class="item-figure">
+                                        <img src={url + image} alt="Feature" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                {cards &&
+                    <div className="">
+                        <div className="row has-animation active-animation">
+                            {cards.map(item => (
+                                <div className="col-xl-4 col-sm-6">
+                                    <div className="translate-left-10 opacity-animation transition-100 transition-delay-100">
+                                        <div className="service-box-layout2 layout-bg-california">
+                                            {/* <div className="item-icon icon-bg-california">
+                                        <div className="icon-color icon-color-california">
+                                            <i className="flaticon-filter" />
+                                        </div>
+                                    </div> */}
+                                            <h3 className="item-title"><a href="service-details.html">{item.heading}</a></h3>
+                                            <p>{item.description}</p>
+                                            {(buttonLink && buttonName) &&
+                                                <a href={buttonLink} className="item-btn btn-text">{buttonName}<i className="flaticon-next" /></a>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                }
             </div>
         </section>
+
 
     )
 }

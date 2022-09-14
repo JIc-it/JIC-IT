@@ -65,7 +65,7 @@ const SectionLayout1 = ({ image, icon, heading, subHeading, description, cards, 
                                 </div>
                             }
                             <div class={`${image ? 'col-lg-6' : 'col-lg-12'}  order-lg-1 d-flex align-items-center justify-content-center has-animation active-animation`}>
-                                <div class="feature-box-layout5">
+                                <div class="feature-box-layout5 mb-4">
 
                                     {heading &&
                                         <h2 class="item-title">{heading}</h2>
@@ -76,7 +76,7 @@ const SectionLayout1 = ({ image, icon, heading, subHeading, description, cards, 
                                     </div>
 
                                     {!!points.length &&
-                                        <div className="footer-top-layout3 pt-0">
+                                        <div className="footer-top-layout3 py-0">
                                             <div className="">
                                                 <div className="footer-widgets">
                                                     {/* <h3 className="footer-widget-heading">Our Services</h3> */}

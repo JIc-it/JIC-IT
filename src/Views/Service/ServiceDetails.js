@@ -8,6 +8,7 @@ import SectionLayout1 from '../../Components/SectionsForService/SectionLayout1'
 import SectionLayout2 from '../../Components/SectionsForService/SectionLayout2'
 import SectionLayout3 from '../../Components/SectionsForService/SectionLayout3'
 import SectionLayout4 from '../../Components/SectionsForService/SectionLayout4'
+import BreadCrumb from '../../Components/UiComponents/BreadCrumb'
 
 const ServiceDetails = () => {
     const { id } = useParams()
@@ -48,20 +49,7 @@ const ServiceDetails = () => {
             {!Loading ?
                 <div>
                     {/* <SectionLayout1 heading={data.heading} subHeading={data.sub_heading} description={data.description} image={data.image} /> */}
-                    <section id="page-banner" class="page-banner bg-gradient-layout6 has-animation ">
-
-                        <div class="container">
-                            <div class="breadcrumbs-area">
-                                <h1>{data.heading}</h1>
-                                <ul>
-                                    <li>
-                                        <Link to={'/'}>Home</Link>
-                                    </li>
-                                    <li>{data.heading}</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
+                    <BreadCrumb heading={data.heading} />
 
                     {data?.sections?.map((item, idx) => (
                         <div >

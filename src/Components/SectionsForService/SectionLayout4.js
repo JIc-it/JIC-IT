@@ -3,7 +3,7 @@ import ReactHtmlParser from 'react-html-parser';
 
 const SectionLayout4 = ({ image, icon, heading, subHeading, description, cards, sectionClassName, points }) => {
     return (
-        <section className={"service-wrap-layout8  "}>
+        <section className={"service-wrap-layout8  py-5"}>
             <div className={sectionClassName}>
 
                 <div className="section-heading heading-dark heading-layout7 color-heliotrope">

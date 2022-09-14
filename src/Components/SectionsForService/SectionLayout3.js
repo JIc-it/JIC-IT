@@ -4,7 +4,7 @@ import ReactHtmlParser from 'react-html-parser';
 
 const SectionLayout3 = ({ image, icon, heading, subHeading, description, buttonLink, buttonName, cards, points, sectionClassName }) => {
     return (
-        <section className={"service-wrap-layout2  bg-color-light position-relative "}>
+        <section className={"service-wrap-layout2  bg-color-light position-relative py-5"}>
             <div className={sectionClassName}>
                 <div className="animated-figure">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="682px" height="624px" data-parallax="{&quot;x&quot; : 150, &quot;y&quot; : -400}" style={{ transform: 'translate3d(0.576px, -1.479px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1)', WebkitTransform: 'translate3d(0.576px, -1.479px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1)' }}>
@@ -12,7 +12,7 @@ const SectionLayout3 = ({ image, icon, heading, subHeading, description, buttonL
                     </svg>
                 </div>
                 <div className=" row">
-                    <div className="col-lg-6 col-12">
+                    <div className={image ? "col-lg-6 col-12" : "col-12"}>
 
                         <div className="section-heading heading-dark heading-layout7">
                             <div className="heading-sub-title">{subHeading}</div>
@@ -20,7 +20,7 @@ const SectionLayout3 = ({ image, icon, heading, subHeading, description, buttonL
                             <div className="">{ReactHtmlParser(description)}</div>
 
                         </div>
-                        
+
                         {points &&
                             <div className="footer-top-layout9 pt-0">
                                 <div className="">

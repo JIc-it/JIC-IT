@@ -1,14 +1,21 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../../Assets/IT-logo.png";
 import { url } from "../../Common/Config";
+import { Context } from "../../Common/Context";
+import Nav from "./Nav";
+import Collapsible from 'react-collapsible';
+
 
 const Header = () => {
+  const { contactData, setcontactData, ContactPageLoading, setContactPageLoading } = useContext(Context)
   const { pathname } = useLocation();
   const [isMobile, setisMobile] = useState(false);
   const [mobileMenuOpen, setmobileMenuOpen] = useState(false);
   const [ServiceNav, setServiceNav] = useState([])
+  const [CategoryVisible, setCategoryVisible] = useState(false)
+  const [dropdownVisible, setdropdownVisible] = useState(false)
 
 
   useEffect(() => {
@@ -55,6 +62,7 @@ const Header = () => {
 
   useEffect(() => {
     GetServices()
+    getContactData()
   }, [])
 
 
@@ -93,6 +101,28 @@ const Header = () => {
       });
 
   }
+
+  const getContactData = async () => {
+
+
+    var config = {
+      method: 'get',
+      url: url + '/contact/',
+      headers: {}
+    };
+
+    await axios(config)
+      .then(function (response) {
+        // console.log(response)
+        setcontactData(response.data[0])
+        setContactPageLoading(false)
+        // setLoading(false)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   return (
     <>
       <header className="sticky-on d-lg-block d-none">
@@ -168,14 +198,14 @@ const Header = () => {
                     </nav>
                   </div>
                   <div className="col-lg-3 d-flex justify-content-end">
-                    <ul className="header-action-items">
+                    {/* <ul className="header-action-items">
                       <li className="single-item mr-2">
                         <a href="#" className="item-btn btn-fill btn-primary">
                           Get a Quote
                         </a>
                       </li>
+                    </ul> */}
 
-                    </ul>
                   </div>
                 </div>
               </div>
@@ -201,11 +231,13 @@ const Header = () => {
             <span />
           </a>
           <nav className="mean-nav">
+            
             <ul
               style={
                 mobileMenuOpen
                   ? {
                     height: "100vh",
+                    overflowY: 'scroll',
                     overflow: "hidden",
                     transition: "all 0.65s ease-in-out 0s",
                   }
@@ -218,9 +250,49 @@ const Header = () => {
             >
               {NavItems.map((item) => (
                 <li>
-                  <Link to={item.url ? item.url : '/'}>{item.title}</Link>
+                  {item.title !== "Service" ?
+                    <Link to={item.url ? item.url : '/'}>{item.title}</Link>
+                    :
+                    <Collapsible trigger={<a>{item.title}</a>}>
+                      {(item.title === "Service" && !!ServiceNav.length) &&
+                        <>
+                         
+                          {ServiceNav.map(item => (
+
+                            <li>
+                              <>
+                                {item.name}
+                              </>
+
+                              {/* <ul className="dropdown-menu-col-1" >
+                                {item.services.map(itm => (
+                                  <>
+
+                                    <div className="collapse" id={item.name}>
+
+                                      <Nav data={itm} />
+                                    </div>
+                                  </>
+
+                                ))}
+
+                              </ul> */}
+
+
+                            </li>
+                          ))}
+                        </>
+                      }
+                      
+
+                    </Collapsible>
+                  }
+
+                  {/* <a className="mean-expand" onClick={() => setCategoryVisible(!CategoryVisible)} style={{ fontSize: 18 }}>{CategoryVisible ? '-' : '+'}</a> */}
                 </li>
               ))}
+
+
             </ul>
           </nav>
         </div>
@@ -236,6 +308,6 @@ export const NavItems = [
   { title: "About", url: "/about" },
   { title: "Service", },
   { title: "Solution", url: "/solution" },
-  { title: "Stack", url: "/" },
+  { title: "Stack", url: "/stack" },
   { title: "Contact", url: "/contact" },
 ];

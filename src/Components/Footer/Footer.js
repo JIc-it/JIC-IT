@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Logo from "../../Assets/IT-logo.png";
+import { Context } from "../../Common/Context";
 import { Address, Mail, Phone } from "../../Views/Contact/Contact";
 
 const Footer = () => {
+  const { contactData, setcontactData } = useContext(Context)
   return (
     <footer
       id="footer-wrap-layout1"
@@ -65,20 +67,18 @@ const Footer = () => {
                 <h3 className="footer-widget-heading">Important Link</h3>
                 <ul className="footer-menu">
                   <li>
-                    <a href="about.html">About Us</a>
+                    <a href="/about">About Us</a>
                   </li>
                   <li>
-                    <a href="#">How to work</a>
+                    <a href="/solution">Solutions</a>
                   </li>
                   <li>
-                    <a href="contact.html">Contact Us</a>
+                    <a href="/stack">stack</a>
                   </li>
                   <li>
-                    <a href="#">Our Media</a>
+                    <a href="/contact">Contact Us</a>
                   </li>
-                  <li>
-                    <a href="#">Privacy</a>
-                  </li>
+
                 </ul>
               </div>
             </div>
@@ -87,20 +87,18 @@ const Footer = () => {
                 <h3 className="footer-widget-heading">Our Services</h3>
                 <ul className="footer-menu">
                   <li>
-                    <a href="service-details.html">Web Design</a>
+                    <a >Media Buying</a>
                   </li>
                   <li>
-                    <a href="service-details.html">Development</a>
+                    <a >Branding</a>
                   </li>
                   <li>
-                    <a href="service-details.html">Graphic Design</a>
+                    <a >Digital Strategy</a>
                   </li>
                   <li>
-                    <a href="service-details.html">Branding</a>
+                    <a >Organic</a>
                   </li>
-                  <li>
-                    <a href="service-details.html">Creative Solution</a>
-                  </li>
+
                 </ul>
               </div>
             </div>
@@ -111,15 +109,15 @@ const Footer = () => {
                 <ul className="footer-contact">
                   <li>
                     <i className="flaticon-placeholder" />
-                    {Address}
+                    {contactData.address}
                   </li>
                   <li>
                     <i className="flaticon-plane" />
-                    <a href={`mailto:${Mail}`} >{Mail}</a>
+                    <a href={`mailto:${contactData.email}`} >{contactData.email}</a>
                   </li>
                   <li>
                     <i className="flaticon-telephone" />
-                    <a href={`tel:+${Phone}`}>{Phone}</a>
+                    <a href={`tel:+${contactData.phone}`}>{contactData.phone}</a>
                   </li>
                 </ul>
               </div>

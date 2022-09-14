@@ -6,7 +6,7 @@ import ReactHtmlParser from 'react-html-parser';
 const SectionLayout2 = ({ image, icon, heading, subHeading, description, buttonLink, buttonName, cards, points, sectionClassName }) => {
     // console.log({ cards })
     return (
-        <section className={"about-wrap-layout1 "}>
+        <section className={"about-wrap-layout1 pt-5"}>
             <div className={sectionClassName}>
 
 

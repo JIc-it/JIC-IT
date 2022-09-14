@@ -4515,7 +4515,7 @@ nav.template-main-menu > ul > li > ul > li:hover ul.third-level {
 
 .sticky-on .navbar-wrap {
   position: relative;
-  z-index: 2;
+  z-index: 50;
 }
 
 .sticky-on .navbar-wrap .navbar-layout1 {

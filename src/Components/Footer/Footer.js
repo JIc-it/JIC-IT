@@ -14,9 +14,9 @@ const Footer = () => {
         className="footer-top-layout1 bg-no-repeat bg-size-cover bg-position-center"
         data-bg-image="media/element/element3.png"
       >
-        <div className="container">
+        <div className="px-3">
           <div className="row">
-            <div className="col-xl-3 col-lg-3 col-md-6 col-12">
+            <div className="col-xl-2 col-lg-2 col-md-6 col-12">
               <div className="footer-widgets">
                 <div className="footer-logo">
                   <a href="index.html">
@@ -62,7 +62,7 @@ const Footer = () => {
                 </ul>
               </div>
             </div> */}
-            <div className="col-xl-3 col-lg-3 col-md-6 col-12">
+            <div className="col-xl-2 col-lg-2 col-md-6 col-12">
               <div className="footer-widgets">
                 <h3 className="footer-widget-heading">Important Link</h3>
                 <ul className="footer-menu">
@@ -82,7 +82,7 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-            <div className="col-xl-3 col-lg-3 col-md-6 col-12">
+            <div className="col-xl-2 col-lg-2 col-md-6 col-12">
               <div className="footer-widgets">
                 <h3 className="footer-widget-heading">Our Services</h3>
                 <ul className="footer-menu">
@@ -102,24 +102,48 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-            <div className="col-xl-3 col-lg-3 col-md-6 col-12">
+            <div className="col-xl-6 col-lg-6 col-md-6 col-12">
               <div className="footer-widgets">
                 <h3 className="footer-widget-heading">Contact Info</h3>
-                {/* <p>Grursus mal suada faci lisis Lorem to ipsum consectetur.</p> */}
-                <ul className="footer-contact">
-                  <li>
-                    <i className="flaticon-placeholder" />
-                    {contactData.address}
-                  </li>
-                  <li>
-                    <i className="flaticon-plane" />
-                    <a href={`mailto:${contactData.email}`} >{contactData.email}</a>
-                  </li>
-                  <li>
-                    <i className="flaticon-telephone" />
-                    <a href={`tel:+${contactData.phone}`}>{contactData.phone}</a>
-                  </li>
-                </ul>
+                <div className="row">
+                  <div className="col-lg-6 col-12 mb-3">
+                    <ul className="footer-contact">
+                      <li>
+                        <i className="flaticon-placeholder" />
+                        {contactData.address}
+                      </li>
+                      <li>
+                        <i className="flaticon-plane" />
+                        <a href={`mailto:${contactData.email}`} >{contactData.email}</a>
+                      </li>
+                      <li>
+                        <i className="flaticon-telephone" />
+                        <a href={`tel:+${contactData.phone}`}>{contactData.phone}</a>
+                        <br />
+                        <a href={`tel:+${918714009728}`}>{`+918714009728`}</a>
+                        <br />
+                        <a href={`tel:+${918714009729}`}>{`+918714009729`}</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="col-lg-6 col-12  mb-3">
+                    <ul className="footer-contact">
+                      <li>
+                        <i className="flaticon-placeholder" />
+                        {Address}
+                      </li>
+                      <li>
+                        <i className="flaticon-plane" />
+                        <a href={`mailto:${Mail}`} >{Mail}</a>
+                      </li>
+                      <li>
+                        <i className="flaticon-telephone" />
+                        <a href={`tel:+${Phone}`}>{Phone}</a>
+                      
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

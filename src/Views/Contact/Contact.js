@@ -21,9 +21,9 @@ const Contact = () => {
   const handleSubmit = () => {
     setsubmitBtnDisabled(true)
 
-    
 
-    
+
+
 
     if (!data.email || !data.message || !data.name || !data.subject) {
       seterrors(true)
@@ -100,21 +100,19 @@ const Contact = () => {
             </div>
 
             <div className="row gutters-50">
-              <div className="col-lg-4 mb-5  ">
+              <div className="col-lg-6 mb-5  ">
                 <div className="single-item translate-left-75 opacity-animation transition-150 transition-delay-100">
                   <div className="address-box-layout2">
                     <div className="item-icon">
                       <i className="flaticon-mail" />
                     </div>
                     <div className="item-content">
-                      <h3 className="item-title">Email &amp; Phone</h3>
+                      <h3 className="item-title">Email </h3>
                       <ul className="list-item">
                         <li>
                           <a href={`mailto:${contactData.email}`}>{contactData.email}</a>
                         </li>
-                        <li>
-                          <a href={`tel:+${contactData.phone}`}>{contactData.phone}</a>
-                        </li>
+
                       </ul>
                     </div>
                   </div>
@@ -125,12 +123,26 @@ const Contact = () => {
                       <i className="flaticon-placeholder" />
                     </div>
                     <div className="item-content">
-                      <h3 className="item-title">Our Location</h3>
+                      <h3 className="item-title ">Our Locations</h3>
                       <ul className="list-item">
                         <li>{contactData.address}</li>
-                        {/* <li>+21 842 755 5575</li> */}
+                        <p>
+
+                          <a href={`tel:+${contactData.phone}`}>{contactData.phone}</a>,
+                          <a href={`tel:+${918714009728}`}>{`+918714009728`}</a>,
+                          
+                          <a href={`tel:+${918714009729}`}>{`+918714009729`}</a>
+                        </p>
+                      </ul>
+
+
+                      <hr />
+                      <ul className="list-item">
+                        <li>{Address}</li>
+                        <a href={`tel:+${Phone}`}>{Phone}</a>
                       </ul>
                     </div>
+
                   </div>
                 </div>
                 {/* <div className="single-item translate-left-75 opacity-animation transition-150 transition-delay-1100">
@@ -148,7 +160,7 @@ const Contact = () => {
               </div>
             </div> */}
               </div>
-              <div className="col-lg-8  ">
+              <div className="col-lg-6  ">
                 <div className="contact-box-layout3">
                   <form
                     className="contact-form-box"
@@ -234,7 +246,7 @@ const Contact = () => {
                         </div>
                       </div>
 
-                      <div className="col-3 form-group mb-0">
+                      <div className="col-12 form-group mb-0">
                         <div className="translate-bottom-50 opacity-animation transition-100 transition-delay-2000">
                           <button
                             type="button"
@@ -268,7 +280,7 @@ const Contact = () => {
 
 export default Contact;
 export const Address =
-  <p>
+  <p className="mb-0">
     Kuwait City, Qibla Block No.15,
     Ali Al Salem Street,
     Adel Tower, Floor No. 7, Door No. 2
